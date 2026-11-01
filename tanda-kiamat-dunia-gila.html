@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tanda-Tanda Hari Kiamat — Saat Dunia Menjadi Gila</title>
+<meta name="description" content="Tanda-tanda hari kiamat: diangkatnya ilmu, dunia menjadi gila, beragam cara kematian, dan cara menyikapinya menurut Al-Qur'an & Hadis sahih." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0d0a;
+    --bg-2:#0f140f;
+    --bg-3:#151b15;
+    --ink:#e8e2d4;
+    --ink-dim:#b9b09a;
+    --ink-mute:#7d7766;
+    --gold:#d4af37;
+    --gold-soft:#b8941f;
+    --gold-glow:rgba(212,175,55,.18);
+    --line:rgba(212,175,55,.25);
+    --danger:#7a2418;
+    --danger-soft:#a83321;
+    --shadow:0 18px 60px rgba(0,0,0,.55);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter','Segoe UI',system-ui,sans-serif;
+    line-height:1.85;
+    font-weight:300;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* atmosphere background */
+  .bg-atmos{
+    position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(212,175,55,.07), transparent 60%),
+      radial-gradient(800px 500px at 85% 20%, rgba(122,36,24,.10), transparent 60%),
+      radial-gradient(900px 600px at 10% 80%, rgba(15,20,15,.6), transparent 60%),
+      linear-gradient(180deg, #060806 0%, #0a0d0a 40%, #0c100b 100%);
+  }
+  .smoke{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+  .ember{
+    position:absolute;
+    width:3px;height:3px;border-radius:50%;
+    background:radial-gradient(circle, rgba(212,175,55,.9) 0%, rgba(212,175,55,0) 70%);
+    bottom:-20px;
+    animation: rise linear infinite;
+    opacity:.6;
+  }
+  @keyframes rise{
+    0%{transform:translateY(0) translateX(0);opacity:0}
+    10%{opacity:.8}
+    90%{opacity:.4}
+    100%{transform:translateY(-110vh) translateX(40px);opacity:0}
+  }
+
+  /* layout */
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  section{padding:90px 0;position:relative}
+  section + section{border-top:1px solid rgba(212,175,55,.08)}
+
+  /* typography */
+  h1,h2,h3,h4{font-family:'Cinzel',serif;font-weight:600;letter-spacing:.02em;color:var(--ink)}
+  .arabic{font-family:'Amiri','Scheherazade New',serif;direction:rtl;font-weight:400;line-height:2.1}
+  .arabic.lg{font-size:1.55rem}
+  .arabic.xl{font-size:2.1rem}
+  .translit{font-style:italic;color:var(--ink-dim);font-size:.92rem;margin-top:4px}
+  .bugis{color:var(--gold);font-weight:500}
+  p{margin-bottom:1.1rem;color:var(--ink-dim)}
+  p strong, p b{color:var(--ink);font-weight:500}
+  .lead{font-size:1.1rem;color:var(--ink)}
+  a{color:var(--gold);text-decoration:none}
+
+  /* hero */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding:60px 24px;position:relative;
+  }
+  .hero .bismillah{
+    font-family:'Amiri',serif;font-size:2rem;color:var(--gold);
+    margin-bottom:38px;letter-spacing:.02em;
+    text-shadow:0 0 30px rgba(212,175,55,.35);
+    opacity:0;animation:fadeIn 1.4s .2s forwards;
+  }
+  .hero .eyebrow{
+    font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.42em;color:var(--gold);
+    text-transform:uppercase;margin-bottom:22px;
+    opacity:0;animation:fadeIn 1.4s .6s forwards;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    line-height:1.15;margin-bottom:18px;
+    background:linear-gradient(180deg, #f4ecd2 0%, #d4af37 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    opacity:0;animation:fadeIn 1.6s .9s forwards;
+  }
+  .hero .sub{
+    font-size:1.05rem;color:var(--ink-dim);max-width:620px;margin:0 auto 30px;
+    opacity:0;animation:fadeIn 1.6s 1.2s forwards;
+  }
+  .hero .sub .bugis{display:block;margin-top:8px;font-size:.95rem;color:var(--gold-soft)}
+  .hero-verse{
+    margin-top:30px;max-width:560px;
+    padding:22px 28px;border:1px solid var(--line);border-radius:4px;
+    background:rgba(15,20,15,.5);
+    opacity:0;animation:fadeIn 1.6s 1.5s forwards;
+  }
+  .hero-verse .arabic{color:var(--ink);font-size:1.25rem;margin-bottom:8px}
+  .hero-verse .id{color:var(--ink-dim);font-size:.92rem;font-style:italic}
+  .scroll-cue{
+    position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+    color:var(--gold);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.3em;
+    opacity:0;animation:fadeIn 2s 2s forwards, bounce 2.2s 2s infinite;
+  }
+  @keyframes fadeIn{to{opacity:1}}
+  @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+  /* section header */
+  .sec-head{display:flex;align-items:center;gap:18px;margin-bottom:36px}
+  .sec-num{
+    font-family:'Cinzel',serif;color:var(--gold);font-size:.85rem;letter-spacing:.25em;
+    border:1px solid var(--line);padding:6px 12px;border-radius:2px;
+    background:rgba(212,175,55,.04);
+  }
+  .sec-title{font-size:clamp(1.4rem, 3.4vw, 2rem);color:var(--ink)}
+  .sec-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+
+  /* card */
+  .card{
+    background:linear-gradient(180deg, rgba(21,27,21,.7), rgba(12,16,12,.7));
+    border:1px solid rgba(212,175,55,.12);
+    border-left:3px solid var(--gold);
+    padding:30px 32px;border-radius:4px;
+    margin-bottom:28px;
+    box-shadow:var(--shadow);
+  }
+  .card h3{font-size:1.2rem;color:var(--gold);margin-bottom:14px;font-weight:500;letter-spacing:.04em}
+
+  /* hadith / verse quote */
+  .quote{
+    margin:26px 0;padding:26px 30px 24px;
+    border:1px solid var(--line);border-radius:4px;
+    background:
+      radial-gradient(220px 120px at 100% 0%, rgba(212,175,55,.06), transparent),
+      rgba(10,13,10,.5);
+    position:relative;
+  }
+  .quote::before{
+    content:'﴾';position:absolute;top:8px;left:10px;
+    font-family:'Amiri',serif;color:var(--gold-soft);font-size:2.2rem;opacity:.5;
+  }
+  .quote .arabic{font-size:1.35rem;color:var(--ink);margin-bottom:10px;padding-right:30px}
+  .quote .translit{margin-bottom:8px}
+  .quote .id{color:var(--ink-dim);font-size:.95rem}
+  .quote .src{
+    display:block;margin-top:14px;font-size:.78rem;letter-spacing:.1em;
+    color:var(--gold);text-transform:uppercase;font-family:'Cinzel',serif;
+  }
+
+  /* deaths grid */
+  .deaths-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px;
+  }
+  .death-tile{
+    background:rgba(15,20,15,.6);
+    border:1px solid rgba(212,175,55,.14);
+    padding:22px 20px;border-radius:4px;
+    text-align:center;transition:transform .3s ease, border-color .3s ease;
+  }
+  .death-tile:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .death-tile .icon{
+    font-family:'Cinzel',serif;font-size:1.6rem;color:var(--gold);margin-bottom:10px;
+    display:block;letter-spacing:.1em;
+  }
+  .death-tile h4{font-size:1rem;color:var(--ink);margin-bottom:6px;font-weight:500}
+  .death-tile p{font-size:.85rem;color:var(--ink-mute);margin:0;line-height:1.5}
+
+  /* action list */
+  .action-list{list-style:none;margin-top:18px}
+  .action-list li{
+    display:flex;gap:18px;padding:18px 0;border-bottom:1px dashed rgba(212,175,55,.12);
+  }
+  .action-list li:last-child{border-bottom:none}
+  .action-num{
+    flex:0 0 44px;height:44px;border-radius:50%;
+    border:1px solid var(--gold);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cinzel',serif;font-size:1rem;
+    background:rgba(212,175,55,.06);
+  }
+  .action-body h4{color:var(--ink);margin-bottom:4px;font-weight:500;font-size:1.05rem}
+  .action-body p{margin:0;font-size:.92rem;color:var(--ink-dim)}
+
+  /* closing prayer */
+  .closing{
+    text-align:center;padding:90px 24px 60px;
+    border-top:1px solid var(--line);
+    background:
+      radial-gradient(600px 300px at 50% 100%, rgba(212,175,55,.06), transparent 70%);
+  }
+  .closing .dua-arabic{
+    font-family:'Amiri',serif;font-size:1.6rem;color:var(--ink);
+    margin-bottom:18px;line-height:2.2;
+  }
+  .closing .dua-id{color:var(--ink-dim);max-width:560px;margin:0 auto 24px;font-style:italic}
+  .closing .final-note{
+    color:var(--gold-soft);font-size:.92rem;margin-top:30px;
+    font-family:'Cinzel',serif;letter-spacing:.05em;
+  }
+  footer{
+    text-align:center;padding:30px 24px;
+    border-top:1px solid rgba(212,175,55,.08);
+    color:var(--ink-mute);font-size:.8rem;letter-spacing:.05em;
+  }
+  footer .star{color:var(--gold);margin:0 8px}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease, transform 1s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* responsive */
+  @media (max-width:640px){
+    .hero .bismillah{font-size:1.6rem}
+    .hero h1{font-size:2.2rem}
+    .quote .arabic{font-size:1.15rem}
+    .card{padding:24px 22px}
+    section{padding:60px 0}
+    .sec-head{flex-wrap:wrap;gap:12px}
+    .action-list li{flex-direction:column;gap:10px}
+    .action-num{align-self:flex-start}
+  }
+
+  /* small refinements */
+  ::selection{background:rgba(212,175,55,.3);color:#fff}
+  .ornament{
+    text-align:center;color:var(--gold-soft);font-family:'Amiri',serif;
+    font-size:1.4rem;margin:30px 0;letter-spacing:.4em;
+  }
+  .ornament::before,.ornament::after{content:'—';margin:0 14px;color:var(--line)}
+</style>
+</head>
+<body>
+<div class="bg-atmos"></div>
+<div class="smoke" id="smoke"></div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <div class="eyebrow">Ashrāṭ as-Sā‘ah · Tanda-Tanda Hari Kiamat</div>
+  <h1>Saat Dunia Menjadi Gila,<br>dan Manusia Lupa Akan Kematian</h1>
+  <p class="sub">
+    Di akhir zaman, orang gila dianggap bijak, orang bijak dicap gila.
+    Ilmu terangkat, kebodohan merajalela, dan kematian datang dalam ribuan rupa —
+    berbaring di ranjang, jatuh dari ketinggian, bahkan mati tanpa mereka sadari.
+    <span class="bugis">Na-iyaro lino mange ri punna naala-nalana — dunia ini menuju tepi kehancurannya.</span>
+  </p>
+  <div class="hero-verse">
+    <div class="arabic">يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْ ۖ إِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ</div>
+    <div class="id">"Wahai manusia, bertakwalah kepada Tuhanmu. Sungguh, goncangan hari kiamat itu adalah suatu kejadian yang sangat besar." — QS. Al-Ḥajj [22]: 1</div>
+  </div>
+  <div class="scroll-cue">↓ Telusuri</div>
+</header>
+
+<!-- ===================== 1. MUQADDIMAH ===================== -->
+<section id="muqaddimah">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">I</span>
+      <h2 class="sec-title">Muqaddimah</h2>
+      <span class="sec-rule"></span>
+    </div>
+
+    <p class="lead reveal">
+      Rasulullah ﷺ tidak meninggalkan kita buta. Beliau menjelaskan
+      <em>ashrāṭ as-sā‘ah</em> — tanda-tanda hari kiamat — agar kita waspada,
+      bukan agar kita takut kemudian menyerah. Di antara tanda itu, ada satu tema
+      yang paling menyentuh hati: bahwa di akhir zaman, <strong>dunia menjadi gila</strong>.
+    </p>
+
+    <p class="reveal">
+      Orang berilmu tidak lagi didengarkan. Orang bodoh berkuasa. Yang haq dianggap batil,
+      yang batil dianggap haq. Orang waras dianggap gila, dan orang gila memimpin umat.
+      Dunia — sebagaimana sabda Nabi ﷺ — menjadi <strong>super gila</strong>: gila yang tak
+      lagi sadar dirinya sedang gila, gila yang tidak menyadari bahwa kematian berjalan
+      menujunya dari segala penjuru.
+    </p>
+
+    <p class="reveal">
+      Dalam adat Bugis-Makassar dikenal nilai <span class="bugis">sipakatau</span> —
+      memperlakukan sesama sebagai manusia seutuhnya — dan <span class="bugis">patturioloang</span> —
+      warisan adat leluhur yang menjaga keseimbangan dunia. Ketika nilai-nilai ini hilang,
+      ketika <span class="bugis">na-iyaro lino</span> (dunia ini) tak lagi dijaga oleh
+      ilmu dan adab, maka kiamat kecil pun terjadi di setiap rumah, di set kampung,
+      di setiap hati.
+    </p>
+
+    <p class="reveal">
+      Halaman ini menghimpun tanda-tanda kiamat itu — khususnya yang menyinggung
+      diangkatnya ilmu, kegilaan dunia, dan beragam cara kematian — berdasarkan
+      Al-Qur'an, hadis sahih Bukhari & Muslim, serta pesan praktis bagaimana seorang
+      muslim menyikapi zaman yang semakin ringkih ini.
+    </p>
+
+    <div class="ornament reveal">﷽</div>
+  </div>
+</section>
+
+<!-- ===================== 2. TANDA 1 — DIANGKATNYA ILMU ===================== -->
+<section id="tanda-ilmu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">II</span>
+      <h2 class="sec-title">Diangkatnya Ilmu & Merajalelanya Kebodohan</h2>
+      <span class="sec-rule"></span>
+    </div>
+
+    <p class="lead reveal">
+      Tanda pertama yang disebut Rasulullah ﷺ bukanlah gempa bumi, bukan gerhana,
+      bukan pula turunnya Dajjal. Melainkan sesuatu yang terdengar sepele namun
+      sangat menentukan: <strong>ilmu diangkat dari muka bumi</strong>.
+    </p>
+
+    <p class="reveal">
+      Dari Anas bin Malik raḍiyallāhu ‘anhu, Rasulullah ﷺ bersabda — sebuah hadis
+      sahih yang menjadi tonggak pemahaman kita tentang akhir zaman:
+    </p>
+
+    <div class="quote reveal">
+      <div class="arabic">مِنْ بَيْنِ أَشْرَاطِ السَّاعَةِ أَنْ يُرْفَعَ الْعِلْمُ، وَيَظْهَرَ الْجَهْلُ، وَيَفْشُوَ الْخَمْرُ، وَيَظْهَرَ الزِّنَا</div>
+      <div class="translit">"Min bayna ashrāṭis-sā‘ah an yurfa‘al-‘ilmu, wa yaẓharal-jahlu, wa yafsyal-khamru, wa yaẓharaz-zinā."</div>
+      <div class="id">"Di antara tanda-tanda hari kiamat: diangkatnya ilmu, munculnya kebodohan, meratanya khamr, dan terang-terangannya zina."</div>
+      <span class="src">HR. Bukhāri (81) &amp; Muslim (2671)</span>
+    </div>
+
+    <p class="reveal">
+      Para ulama menjelaskan, ilmu tidak diangkat dengan cara mencabut hafalan dari
+      otak manusia. Ilmu diangkat dengan <strong>wafatnya para ulama</strong> yang
+      membawa amanah itu, sementara yang tinggal hanya orang yang mengaku berilmu
+      padahal kosong. Maka ketika seorang ‘ālim wafat, terputuslah satu tali ilmu
+      dari langit ke bumi. Satu per satu tali itu dipotong oleh kematian, hingga
+      tak ada lagi yang mengingatkan manusia tentang Tuhan mereka.
+    </p>
+
+    <p class="reveal">
+      Dalam riwayat lain disebutkan bahwa Allah mengangkat ilmu dengan cara
+      <strong>mencabut kefahaman dari hati</strong> manusia — sekalipun lahirnya
+      mereka masih mengaji, masih ceramah, masih berjudul kyai. Mereka berbicara
+      dengan lidah para ulama, namun hati mereka kosong dari takwa. Inilah
+      <strong>kegilaan pertama</strong>: orang pintar sejati menjadi orang gila
+      di mata dunia, karena kebenaran yang ia ucapkan tidak lagi dipahami oleh
+      hati yang sudah mati.
+    </p>
+
+    <p class="reveal">
+      Bagi orang awam Bugis-Makassar, tanda ini terasa nyata. Generasi yang masih
+      memegang <span class="bugis">patturioloang</span> (adat leluhur yang berlandaskan
+      syariat) pergi satu per satu. Yang muda lebih mengenal harga pasaran daripada
+      ayat Al-Qur'an, lebih hafal lirik lagu daripada surat Al-Fatihah. Ilmu ada di
+      ujung jari — di Google, di TikTok — namun <strong>kefahaman</strong> tidak
+      tinggal bersama kita. Itulah mengapa orang pintar masa kini bisa justru
+      menjadi orang gila yang paling berbahaya: karena ia pintar tanpa cahaya.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 3. TANDA 2 — DUNIA MENJADI GILA ===================== -->
+<section id="tanda-gila">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">III</span>
+      <h2 class="sec-title">Dunia Menjadi Gila — Super Gila</h2>
+      <span class="sec-rule"></span>
+    </div>
+
+    <p class="lead reveal">
+      Ketika ilmu terangkat dan hati tidak lagi memahami kebenaran, dunia memasuki
+      tahap berikutnya: <strong>kegilaan kolektif</strong>. Bukan kegilaan satu dua
+      orang, melainkan kegilaan yang melanda seluruh masyarakat. Orang waras
+      dianggap gila, dan orang gila dielu-elukan sebagai pahlawan.
+    </p>
+
+    <p class="reveal">
+      Allah ﷻ berfirman dalam Al-Qur'an, menggambarkan kondisi semacam ini:
+    </p>
+
+    <div class="quote reveal">
+      <div class="arabic">ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ</div>
+      <div class="translit">"Ẓaharal-fasādu fil-barri wal-baḥri bimā kasabat aidin-nās."</div>
+      <div class="id">"Telah tampak kerusakan di darat dan di laut disebabkan perbuatan tangan manusia."</div>
+      <span class="src">QS. Ar-Rūm [30]: 41</span>
+    </div>
+
+    <p class="reveal">
+      "Kerusakan" di sini bukan sekadar banjir atau kekeringan. Itu <em>fasād</em> —
+      kerusakan moral, kerusakan akal, kerusakan cara berpikir. Manusia membuat
+      kegilaan sendiri, lalu kegilaan itu kembali menimpa mereka. Mereka menciptakan
+      hukum-hukum baru yang membawa bencana, lalu heran mengapa dunia menjadi
+      semakin gelisah. Mereka menciptakan teknologi yang memperbudak diri sendiri,
+      lalu menyebutnya "kemajuan".
+    </p>
+
+    <p class="reveal">
+      <strong>Dunia menjadi gila super gila</strong> — istilah yang berlebihan namun
+      akurat — ketika kegilaan itu tidak lagi disadari sebagai kegilaan. Orang yang
+      masih memegang akal sehat dipandang aneh, dikucilkan, dicap ekstrem. Sementara
+      orang yang merusak diri sendiri dan merusak orang lain dipandang "moderen",
+      "rasional", "berpikiran terbuka".
+    </p>
+
+    <p class="reveal">
+      Rasulullah ﷺ menggambarkan akhir zaman dalam sabdanya yang sahih:
+    </p>
+
+    <div class="quote reveal">
+      <div class="arabic">لَا تَقُومُ السَّاعَةُ حَتَّى يَتَّخِذَ النَّاسُ الْقُرْآنَ مَظَالِمَ، وَيَتَّخِذُوا الْمَسَاجِدَ طُرُقًا</div>
+      <div class="id">"(Tidak akan terjadi kiamat) hingga manusia menjadikan Al-Qur'an sebagai sekadar hiasan, dan menjadikan masjid sebagai jalan lalu-lalang."</div>
+      <span class="src">HR. At-Tabarāni (dhaif secara sanad, namun maknanya dibenarkan oleh kondisi akhir zaman)</span>
+    </div>
+
+    <p class="reveal">
+      Orang pintar — bukan orang bodoh — yang seharusnya menjadi penjaga kebenaran,
+      kini banyak yang menjadi mesin pencetak kegilaan. Mereka pintar bahasa, pintar
+      berargumen, pintar berbisnis, namun <strong>matanya buta terhadap akhirat</strong>.
+      Mereka menulis buku, mengisi seminar, menjadi publik figur, namun setiap kata
+      yang keluar justru menjauhkan manusia dari Allah. Merekalah orang pintar yang
+      telah menjadi gila — gila yang paling sulit disembuhkan, karena kegilaan mereka
+      dikemas dengan gelar, jas, dan sertifikat.
+    </p>
+
+    <p class="reveal">
+      Pada tahap ini, <strong>mereka tidak sadar akan mati</strong>. Hidup seolah tak
+      berakhir. Rencana dibuat untuk puluhan tahun ke depan tanpa pernah sekalipun
+      bertanya: <em>"Bagaimana jika aku mati besok?"</em> Kematian dianggap hal yang
+      menimpa orang lain — bukan diri sendiri. Inilah puncak kegilaan: hidup tanpa
+      kesadaran bahwa hidup itu sendiri sedang berakhir.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 4. TANDA 3 — BERAGAM CARA KEMATIAN ===================== -->
+<section id="tanda-mati">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">IV</span>
+      <h2 class="sec-title">Beragam Cara Kematian di Akhir Zaman</h2>
+      <span class="sec-rule"></span>
+    </div>
+
+    <p class="lead reveal">
+      Salah satu tanda yang paling jarang dibicarakan namun paling nyata di zaman kita:
+      <strong>begitu banyaknya cara orang mati</strong>. Mereka mati bukan hanya karena
+      sakit parah atau usia tua. Mereka mati berbaring di ranjang, mati jatuh dari
+      ketinggian, mati saat sedang mengemudi, mati saat sedang bermain ponsel,
+      mati saat sedang tertawa, mati tanpa sempat mengucapkan kalimat tauhid.
+    </p>
+
+    <p class="reveal">
+      Allah ﷻ berfirman dalam Al-Qur'an, mengingatkan bahwa kematian akan datang
+      di mana pun kita berada, dalam keadaan apa pun:
+    </p>
+
+    <div class="quote reveal">
+      <div class="arabic">أَيْنَمَا تَكُونُوا يُدْرِككُّمُ الْمَوْتُ وَلَوْ كُنتُمْ فِي بُرُوجٍ مُّشَيَّدَةٍ</div>
+      <div class="translit">"Aynamā takūnū yudrikkumul-mawtu wa law kuntum fī burūjin musyayyadah."</div>
+      <div class="id">"Di mana saja kamu berada, kematian akan mendapatkan kamu, kendati pun kamu di dalam benteng yang tinggi lagi kokoh."</div>
+      <span class="src">QS. An-Nisā' [4]: 78</span>
+    </div>
+
+    <p class="reveal">
+      "Benteng yang tinggi lagi kokoh" — dalam bahasa modern, itu bisa berarti
+      gedung pencakar langit, apartemen lantai 30, pesawat, mobil mewah dengan
+      airbag enam titik. Namun kematian tetap menemukan jalan. <strong>Tidak ada
+      teknologi yang dapat menolak izin Allah</strong>.
+    </p>
+
+    <div class="deaths-grid reveal">
+      <div class="death-tile">
+        <span class="icon">i</span>
+        <h4>Mati Berbaring</h4>
+        <p>Wafat di atas ranjang, dalam tidur yang tak pernah bangun lagi. Banyak yang berbaring tanpa mempersiapkan wasiat atau taubat.</p>
+      </div>
+      <div class="death-tile">
+        <span class="icon">ii</span>
+        <h4>Jatuh dari Ketinggian</h4>
+        <p>Terkelincir di tangga, terjatuh dari ketinggian gedung, terjun tanpa parasut. Meninggal dalam hitungan detik.</p>
+      </div>
+      <div class="death-tile">
+        <span class="icon">iii</span>
+        <h4>Mati di Jalan</h4>
+        <p>Kecelakaan lalu lintas — motor, mobil, pesawat. Jasad tak utuh, hati tak siap, lisan tak sempat mengingat Allah.</p>
+      </div>
+      <div class="death-tile">
+        <span class="icon">iv</span>
+        <h4>Mati Tersenyum</h4>
+        <p>Mati saat sedang bermain ponsel, menonton komedi, mengobrol kosong. Pergi dunia dalam keadaan lalai — tanpa zikir.</p>
+      </div>
+      <div class="death-tile">
+        <span class="icon">v</span>
+        <h4>Serangan Jantung</h4>
+        <p>Mendadak, di tengah aktivitas. Tidak ada peringatan, tidak ada kesempatan menyiapkan diri. Meninggal sebelum sempat istighfar.</p>
+      </div>
+      <div class="death-tile">
+        <span class="icon">vi</span>
+        <h4>Tenggelam & Hilang</h4>
+        <p>Banjir bandang, tenggelam di laut, tersapu ombak. Ada yang jasadnya tak ditemukan, jenazah tak disholatkan.</p>
+      </div>
+      <div class="death-tile">
+        <span class="icon">vii</span>
+        <h4>Saat Bercanda</h4>
+        <p>Mati di tengah tawa, di antara teman, di kafe, di pesta. Meninggal tanpa membawa amal, hanya membawa kelalaian.</p>
+      </div>
+      <div class="death-tile">
+        <span class="icon">viii</span>
+        <h4>Tersambar & Terbakar</h4>
+        <p>Sambaran petir, kebakaran rumah, ledakan. Meninggal dalam keadaan panik, jiwa terbang sebelum sempat bertobat.</p>
+      </div>
+    </div>
+
+    <p class="reveal" style="margin-top:30px">
+      <strong>Tanda-tanda inilah yang paling sering dilupakan.</strong> Kita sibuk
+      membahas Dajjal, turunnya ‘Isa ‘alaihis-salām, matahari terbit dari barat —
+      padahal setiap hari, di sekeliling kita, kematian sudah berjalan dalam ribuan
+      rupa. Itulah <em>kiamat kecil</em> bagi setiap manusia: kematian pribadinya.
+    </p>
+
+    <p class="reveal">
+      Dalam hadis sahih yang panjang — hadis Nawwās bin Sam‘ān raḍiyallāhu ‘anhu
+      tentang Dajjal dan turunnya ‘Isa — Rasulullah ﷺ menyebut bahwa di akhir zaman
+      Allah akan mengutus sebuah angin lembut dari arah Syam yang mencabut nyawa
+      setiap orang mukmin, sehingga yang tersisa di muka bumi hanyalah orang-orang
+      fasik yang menghadapi kiamat itu sendiri:
+    </p>
+
+    <div class="quote reveal">
+      <div class="arabic">...فَيَبْعَثُ اللَّهُ رِيحًا طَيِّبَةً فَيَقْبِضُونَهَا فِي أَبْطَانِهِمْ، فَيَقْبِضُهَا اللَّهُ عَزَّ وَجَلَّ</div>
+      <div class="id">"...maka Allah mengutus angin yang lembut, lalu mereka (orang-orang mukmin) menerimanya di bawah ketiak mereka, lalu Allah mencabut nyawa mereka karenanya."</div>
+      <span class="src">HR. Muslim (2937) — dari Nawwās bin Sam‘ān</span>
+    </div>
+
+    <p class="reveal">
+      Para ulama menafsirkan, angin lembut itu mencabut nyawa orang mukmin
+      <strong>di mana pun ia berada, dalam keadaan apa pun</strong> — sedang berbaring,
+      sedang berdiri, sedang duduk, sedang bekerja. Kematian tidak menunggu posisi
+      yang nyaman. Maka pesan hadis ini sangat jelas: <strong>bersiaplah, karena
+      kematian datang dalam bentuk yang paling tak terduga</strong>.
+    </p>
+
+    <p class="reveal">
+      Nabi ﷺ juga pernah berdoa — dan doa ini menjadi pegangan kita — memohon
+      perlindungan dari kegilaan, kelalaian, dan sebab-sebab kematian yang hina:
+    </p>
+
+    <div class="quote reveal">
+      <div class="arabic">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْجُنُونِ، وَالْبَرَصِ، وَالْجُذَامِ، وَسُوءِ الْأَسْقَامِ</div>
+      <div class="id">"Ya Allah, aku berlindung kepada-Mu dari kegilaan, dari penyakit belang, dari kusta, dan dari segala penyakit yang buruk."</div>
+      <span class="src">HR. Abu Dāwūd (1554), An-Nasā'i — hasan</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. AYAT & HADIS PENDUKUNG ===================== -->
+<section id="dalil">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">V</span>
+      <h2 class="sec-title">Ayat & Hadis Pendukung</h2>
+      <span class="sec-rule"></span>
+    </div>
+
+    <p class="lead reveal">
+      Berikut himpunan ayat Al-Qur'an dan hadis sahih yang menjadi rujukan utama
+      bagi seluruh tanda yang dibahas di halaman ini. Semua sumber disebut dengan
+      jelas agar dapat diverifikasi oleh pembaca.
+    </p>
+
+    <div class="card reveal">
+      <h3>1. QS. Al-Ḥajj [22]: 1-2</h3>
+      <div class="arabic lg">يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْ ۖ إِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ ۝ يَوْمَ تَرَوْنَهَا تَذْهَلُ كُلُّ مُرْضِعَةٍ عَمَّا أَرْضَعَتْ وَتَضَعُ كُلُّ ذَاتِ حَمْلٍ حَمْلَهَا وَتَرَى النَّاسَ سُكَارَى وَمَا هُم بِسُكَارَى وَلَٰكِنَّ عَذَابَ اللَّهِ شَدِيدٌ</div>
+      <p class="translit">"Yā ayyuhan-nāsuttaqū rabbakum, inna zalzalatas-sā‘ati syai‘un ‘aẓīm. Yauma tarawnahā taḏhalu kullu murḍi‘atin ‘ammā arḍa‘at wa taḍa‘u kullu ḏāti ḥamlin ḥamlahā wa taran-nāsa sukārā wa mā hum bisukārā wa lākinna ‘aḏāballāhi syadīd."</p>
+      <p class="id">"Wahai manusia, bertakwalah kepada Tuhanmu. Sesungguhnya goncangan hari kiamat itu suatu kejadian yang sangat besar. (Yaitu) pada hari kamu melihatnya, lalai segala ibu yang menyusui anaknya dari anak yang disusuinya, dan gugur segala ibu yang mengandung anaknya, dan kamu lihat manusia dalam keadaan mabuk, padahal mereka tidak mabuk, namun azab Allah sangat keras."</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>2. QS. Az-Zalzalah [99]: 1-2</h3>
+      <div class="arabic lg">إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا ۝ وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا</div>
+      <p class="id">"Apabila bumi digoncangkan dengan goncangan yang dahsyat (sekali), dan bumi telah mengeluarkan beban-beban yang berat (yang tersimpan) di dalamnya."</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>3. Hadis Bukhari — Anas bin Malik</h3>
+      <div class="arabic lg">مِنْ بَيْنِ أَشْرَاطِ السَّاعَةِ أَنْ يُرْفَعَ الْعِلْمُ، وَيَظْهَرَ الْجَهْلُ، وَيَفْشُوَ الْخَمْرُ، وَيَظْهَرَ الزِّنَا</div>
+      <p class="id">"Di antara tanda-tanda hari kiamat: diangkatnya ilmu, munculnya kebodohan, meratanya khamr, dan terang-terangannya zina."</p>
+      <p class="src" style="color:var(--gold);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-top:10px">HR. Bukhāri (81) &amp; Muslim (2671)</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>4. Hadis Muslim — Abu Hurairah (Penggembala Telanjang)</h3>
+      <div class="arabic lg">وَأَنْ تَرَى الْحُفَاةَ الْعُرَاةَ الْعَالَةَ رِعَاءَ الشَّاءِ يَتَطَاوَلُونَ فِي الْبُنْيَانِ</div>
+      <p class="id">"Dan (tanda kiamat adalah) kamu melihat orang-orang yang telanjang kaki, telanjang badan, miskin, penggembala kambing, saling berlomba meninggikan bangunan."</p>
+      <p class="src" style="color:var(--gold);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-top:10px">HR. Bukhāri (6) &amp; Muslim (8)</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>5. Hadis Muslim — Nawwās bin Sam‘ān (Angin Lembut)</h3>
+      <div class="arabic lg">...فَيَبْعَثُ اللَّهُ رِيحًا طَيِّبَةً فَيَقْبِضُونَهَا فِي أَبْطَانِهِمْ</div>
+      <p class="id">"...Allah akan mengutus angin yang lembut, lalu orang-orang mukmin menerimanya di bawah ketiak mereka, lalu Allah mencabut nyawa mereka karenanya, sehingga tidak tersisa di muka bumi kecuali orang-orang jahat, maka pada mereka-lah kiamat terjadi."</p>
+      <p class="src" style="color:var(--gold);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-top:10px">HR. Muslim (2937)</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>6. Hadis Tirmidzi — Perbanyak Zikir Kematian</h3>
+      <div class="arabic lg">أَكْثِرُوا ذِكْرَ هَاذِمِ اللَّذَّاتِ: الْمَوْتِ</div>
+      <p class="id">"Perbanyaklah mengingat pemutus kelezatan — yaitu kematian."</p>
+      <p class="src" style="color:var(--gold);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-top:10px">HR. At-Tirmidzi (2308) — hasan</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. CARA MENYIKAPI ===================== -->
+<section id="menyikapi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">VI</span>
+      <h2 class="sec-title">Cara Menyikapi Zaman yang Gila</h2>
+      <span class="sec-rule"></span>
+    </div>
+
+    <p class="lead reveal">
+      Tanda-tanda kiamat bukanlah alasan untuk putus asa. Sebaliknya, ia adalah
+      undangan agar kita <strong>kembali kepada Allah sebelum kematian menjemput</strong>.
+      Dunia boleh menjadi gila, namun seorang muslim tetap dapat menjaga hatinya
+      tetap waras — berpegang pada lima pegangan berikut.
+    </p>
+
+    <ul class="action-list reveal">
+      <li>
+        <div class="action-num">1</div>
+        <div class="action-body">
+          <h4>Banyak Zikir &amp; Istighfar</h4>
+          <p>Zikir adalah penenang hati di zaman yang bising. Istighfar adalah pembersih dosa di zaman yang penuh fitnah. Ucapkan <em>subḥānallāhi wa biḥamdih</em> seratus kali sehari — dosa-dosa kecil akan berguguran bagai daun dari pohon.</p>
+        </div>
+      </li>
+      <li>
+        <div class="action-num">2</div>
+        <div class="action-body">
+          <h4>Tobat Sebelum Napas Berhenti</h4>
+          <p>Jangan menunggu tobat di ranjang mati — sebab kita tidak tahu di mana ranjang mati kita: di rumah, di jalan, di ketinggian, atau di tengah tawa. Tobatlah setiap hari, setiap malam, seolah-olah hari ini adalah hari terakhir.</p>
+        </div>
+      </li>
+      <li>
+        <div class="action-num">3</div>
+        <div class="action-body">
+          <h4>Cari Ilmu &amp; Pegang Al-Qur'an</h4>
+          <p>Ilmu sedang diangkat dari muka bumi — maka rebutlah ia selagi masih ada. Belajarlah dari ‘ālim yang benar, bukan dari algoritma TikTok. Jadikan Al-Qur'an bacaan harian, bukan sekadar hiasan di dinding.</p>
+        </div>
+      </li>
+      <li>
+        <div class="action-num">4</div>
+        <div class="action-body">
+          <h4>Persiapkan Kematian dalam Segala Keadaan</h4>
+          <p>Ingatlah bahwa kematian datang berbaring, jatuh, di jalan, di tengah tawa. Maka jangan biarkan dirimu berada dalam keadaan lalai. Setiap memulai aktivitas, ucapkan bismillah. Setiap akan tidur, baca ayat kursi. Setiap akan keluar rumah, ucapkan doa musafir.</p>
+        </div>
+      </li>
+      <li>
+        <div class="action-num">5</div>
+        <div class="action-body">
+          <h4>Jaga Adab &amp; Sipakatau</h4>
+          <p>Dalam adat Bugis-Makassar, <span class="bugis">sipakatau</span> — memperlakukan sesama sebagai manusia — adalah perisai ketika dunia menjadi gila. Tolong-menolong dalam kebaikan, jaga hak tetangga, hormati yang tua, didik yang muda. Adab yang baik membuat orang gila sekitar kita berkurang kegilaannya.</p>
+        </div>
+      </li>
+      <li>
+        <div class="action-num">6</div>
+        <div class="action-body">
+          <h4>Jauhi Sebab Kematian yang Lalai</h4>
+          <p>Hindari tempat-tempat yang jika kematian menjemput di sana, kita tidak ingin ditemukan dalam keadaan itu. Hindari majelis maksiat, hindari bergaul dengan penyebar kegilaan, hindari media yang merusak akal. Tidak ada yang salah dengan dunia — yang salah adalah sebagian manusia di dalamnya.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="ornament reveal">۞</div>
+  </div>
+</section>
+
+<!-- ===================== 7. PENUTUP & DOA ===================== -->
+<section class="closing reveal">
+  <div class="wrap">
+    <div class="eyebrow" style="font-family:'Cinzel',serif;color:var(--gold);letter-spacing:.4em;font-size:.75rem;margin-bottom:18px">Doa Penutup</div>
+    <div class="dua-arabic">
+      اللَّهُمَّ إِنَّا نَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ، وَتَحَوُّلِ عَافِيَتِكَ، وَفُجَاءَةِ نَقْمَتِكَ، وَجَمِيعِ سَخَطِك
+    </div>
+    <p class="dua-id">
+      "Ya Allah, kami berlindung kepada-Mu dari hilangnya nikmat-Mu, dari berubahnya kesehatan yang Engkau berikan, dari datangnya azab-Mu secara mendadak, dan dari segala kemurkaan-Mu."
+    </p>
+    <p class="dua-id" style="font-style:normal;color:var(--ink-mute);margin-top:18px;font-size:.85rem">
+      — HR. Muslim (2717), doa Rasulullah ﷺ
+    </p>
+
+    <div style="max-width:560px;margin:40px auto 0">
+      <p style="color:var(--ink-dim);font-size:.95rem">
+        Wahai saudaraku — apabila dunia telah menjadi gila, jangan biarkan hatimu ikut gila.
+        Tetaplah waras di tengah orang-orang yang hilang akal. Tetaplah mengingat Allah
+        di tengah mereka yang lupa. Karena kematian — dalam ribuan rupa itu —
+        sesungguhnya adalah jemputan, dan kita semua sedang menanti gilirannya.
+      </p>
+      <p style="color:var(--gold-soft);font-size:.95rem;margin-top:14px;text-align:center">
+        <em>Na-iyaro lino na-iyaro matei — dunia ini, menuju kematian ini.</em>
+      </p>
+    </div>
+
+    <div class="final-note">Wallāhu a‘lam biṣ-ṣawāb</div>
+  </div>
+</section>
+
+<footer>
+  Tanda-Tanda Hari Kiamat <span class="star">✦</span>
+  Berdasarkan Al-Qur'an, Hadis Sahih Bukhari &amp; Muslim <span class="star">✦</span>
+  Untuk renungan &amp; peringatan
+</footer>
+
+<script>
+  // ember particles
+  (function(){
+    var s = document.getElementById('smoke');
+    if(!s) return;
+    var count = window.innerWidth < 640 ? 28 : 55;
+    for(var i=0;i<count;i++){
+      var e = document.createElement('div');
+      e.className = 'ember';
+      e.style.left = (Math.random()*100) + '%';
+      e.style.width = e.style.height = (1 + Math.random()*3) + 'px';
+      e.style.animationDuration = (8 + Math.random()*14) + 's';
+      e.style.animationDelay = (Math.random()*12) + 's';
+      e.style.opacity = (.3 + Math.random()*.5);
+      s.appendChild(e);
+    }
+  })();
+
+  // reveal on scroll
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>
